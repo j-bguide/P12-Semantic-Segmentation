@@ -1,0 +1,4 @@
+Keras==2.2.4
+opencv-python==3.4.3.18
+tqdm==4.26.0
+pytest==3.4.1
