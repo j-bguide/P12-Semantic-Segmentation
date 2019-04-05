@@ -56,15 +56,20 @@ $ docker build -t roadeye:latest -f Dockerfile .
 $ docker build -t roadeye:latest -f Dockerfile-gpu .
 ```
 
-#### Train
+#### Start the docker image
 ```console
 # without gpu
 $ docker run -v $PWD:/road_segmentation -w /road_segmentation -it --rm roadeye:latest
 # with gpu
 $ docker run --runtime=nvidia -v $PWD:/road_segmentation -w /road_segmentation -it --rm roadeye:latest
-$ python src/train.py
-# you can download the trained model from the 'release' tab
 ```
+
+#### Train
+```console
+$ python src/train.py
+```
+You can skip the Train step and download the pre-trained model from the 'release' tab.
+https://github.com/see--/P12-Semantic-Segmentation/releases/download/v0.1.0/best-ep-38-val_iou-0.898-val_loss-0.064.hdf5
 
 #### Convert the model to tflite format
 Use the hdf5 with the highest `val_iou`.
